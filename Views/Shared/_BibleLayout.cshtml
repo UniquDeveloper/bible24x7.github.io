@@ -1,0 +1,212 @@
+﻿
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/Image/favicon (2).ico" />
+    <title>Bible_24x7</title>
+    <meta name="keywords" content="" />
+    <link href="~/triel/default.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="description" content="" />
+    @*<link href="~/Scripts/css/Boostrap.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>*@
+    @*<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" media="all" />*@
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <style>
+        h1 {
+            font-size: 60px;
+            text-align: center;
+            color: #FFF;
+            margin-top: 150px;
+            font-family: 'Russo One', sans-serif;
+        }
+
+            h1 span {
+                color: #FF4649;
+            }
+
+        #container {
+            margin: 0 auto;
+        }
+
+
+
+        nav {
+            margin: 35px 0;
+            background-color: #2056ac;
+        }
+
+            nav ul {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                position: relative;
+            }
+
+                nav ul li {
+                    display: inline-block;
+                    background-color: #2056ac;
+                }
+
+            nav a {
+                display: block;
+                padding: 0 10px;
+                color: #FFF;
+                font-size: 20px;
+                line-height: 60px;
+                text-decoration: none;
+            }
+
+                nav a:hover {
+                    background-color: gray;
+                }
+
+            nav ul ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                height: 400px;
+                /*//change it as you like*/ overflow-y: auto;
+            }
+
+            nav ul li:hover > ul {
+                display: inherit;
+            }
+
+            nav ul ul li {
+                width: 100%;
+                float: none;
+                display: list-item;
+                position: relative;
+            }
+
+            nav ul ul ul li {
+                position: relative;
+                top: -60px;
+                left: 230px;
+            }
+
+            nav ul ul li {
+                border: 1px solid white;
+            }
+
+        li > a:after {
+            content: ' ▼';
+        }
+
+        li > a:only-child:after {
+            content: '';
+        }
+    </style>
+    @*<link href="~/Content/default.css" rel="stylesheet" type="text/css" media="all" />*@
+    <link href="~/Content/fonts.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+    <div id="header-wrapper">
+        <div id="header" class="container">
+            <div id="logo">
+                <span><img src="~/Content/Image/WhatsApp Image 2020-05-13 at 12.19.39 AM.jpeg" style="width:80px;height:60px;border-radius: 100%;" /></span>
+                <h2><a href="#">Bible_24x7</a></h2>
+            </div>
+            <div id="container">
+                <nav>
+                    <ul class="active">
+                        <li>@Html.ActionLink("Home", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                       
+                        <li>
+                            @Html.ActionLink("Bible Quiz", "GetUSer", "BibleQuize", new { area = "" }, new { })
+                        </li>
+                        <li>
+                            <a href="#">Verse By Topic</a>
+                            <ul>
+                                <li>
+                                    @Html.ActionLink("MARRAIGE", "BibleVerse", "VerseByTopic", new { area = "" }, new { @class = "navbar-brand" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("LOVE", "Love", "VerseByTopic", new { area = "" }, new { @class = "navbar-brand" })
+                                </li>
+                                <li>@Html.ActionLink("RELATIONSHIP", "Relationship", "VerseByTopic", new { area = "" }, new { @class = "navbar-brand" })</li>
+                                <li>@Html.ActionLink("FAITH", "AboutFaith", "VerseByTopic", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+                                <li>@Html.ActionLink("FEAR", "ABOUTFEAR", "VerseByTopic", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+                                <li>@Html.ActionLink("JOY", "ABOUTJOY", "VerseByTopic", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+                                <li>@Html.ActionLink("HOPE", "ABOUTHOPE", "VerseByTopic", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+                                <li>@Html.ActionLink("HARDWORK", "HARDWORK", "VerseByTopic", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+                                <li>@Html.ActionLink("PRAYER", "PRAYER", "VerseByTopic", new { area = "" }, new { @class = "navbar-brand" })</li>
+                                <li>@Html.ActionLink("THANKFUL", "THANKFUL", "VerseByTopic", new { area = "" }, new { @class = "navbar-brand" })</li>
+                            </ul>
+                        </li>
+                        <li><a href="https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.biblica.com/bible/&ved=2ahUKEwiv65aStLjpAhXt4nMBHZgIBW4QFjAAegQIAhAB&usg=AOvVaw3oMxDmNUf0vc0tYhAow7CR&cshid=1589632977908">Study Bible</a></li>
+                        <li>
+                            <a href="#">Free Resources</a>
+                            <ul>
+                                <li>
+                                    <a href="https://www.easyenglish.bible/dictionary/bible/">Bible Dictionary</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.easyenglish.bible/accessible/">Bible Stories</a>
+                                </li>
+                                <li><a href="https://www.easyenglish.bible/bible/summaries/">Bible Summary</a></li>
+                                <li><a href="https://www.easyenglish.bible/bible/easy/">Easy English Bible</a></li>
+                                <li><a href="https://www.easyenglish.bible/bible-commentaries/">Bible Commentaries</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div id="welcome" class="container">
+                <div class="title">
+                    @RenderBody()
+                </div>
+            </div>
+
+            <div id="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="fbox1">
+                            <span>Home</span> <a href="@Url.Action("Home", "Home")" class="icon icon-home"></a>
+                        </div>
+                        <div class="fbox1">
+                            <span>Contact Us</span>
+                            <a href="@Url.Action("Index", "ContactUS")" class="icon icon-phone"></a>
+
+                        </div>
+                        <div class="fbox1">
+                            <span>About Us</span>
+                            <a href="@Url.Action("AboutUs", "ContactUS")" class="icon icon-comments"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <div id="copyright">
+                <p>
+                    @DateTime.Now.Year&copy;Bible.<br />
+                    Design by <a href="#" rel="nofollow"></a>Sharda Nandanwar.<br />
+                    Bible24x7@gmail.com<br />
+                    @*infoholybible@gmail.com*@
+
+                </p>
+                <ul class="contact">
+                    <li><a href="https://mobile.twitter.com/24x7bible" class="icon icon-twitter"><span>Twitter</span></a></li>
+                    <li><a href="https://m.facebook.com/Bible24x7/" class="icon icon-facebook"><span></span></a></li>
+                    <li><a href="https://www.instagram.com/bible_24x7/" class="fa fa-instagram" style="font-size:25px"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

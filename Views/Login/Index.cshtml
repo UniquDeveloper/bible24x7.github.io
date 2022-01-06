@@ -1,0 +1,74 @@
+﻿@model Demo.Crud.Mvc.Models.Course
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/Image/favicon (2).ico" />
+    <title>Bible_24x7</title>
+    <link href="~/Scripts/css/Style.css" rel="stylesheet" />
+    <link href="~/Scripts/css/Font-family.css" rel="stylesheet" />
+    <link href="~/Scripts/css/Boostrap.css" rel="stylesheet" />
+    <script src="~/Scripts/js/moment.min.js"></script>
+    <script src="~/Scripts/js/moment.js"></script>
+</head>
+<body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div id="container">
+            <header id="header" class="navbar navbar-static-top">
+                <div class="container-fluid">
+                    <div id="header-logo" class="navbar-header">Articals</div>
+                    <a href="#" id="button-menu" class="hidden-md hidden-lg"><span class="fa fa-bars"></span></a>
+                </div>
+            </header>
+            <div id="content">
+                <div class="container-fluid">
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h1 class="panel-title"><i class="fa fa-lock"></i> Please enter your login details.</h1>
+                                </div>
+                                <div class="panel-body">
+                                    <form action="https://demo.opencart.com/admin/index.php?route=common/login" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="input-username">Username</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                <input type="text" name="username" value="demo" placeholder="Username" id="input-username" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="input-password">Password</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                <input type="password" name="password" value="demo" placeholder="Password" id="input-password" class="form-control">
+                                            </div>
+                                            <span class="help-block">Forgotten Password</span>
+                                        </div>
+                                        @*<span class="text-danger">
+                                            @TempData
+                                        </span>*@
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-primary"><i class="fa fa-key"></i>Login</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer id="footer">Artical© 2009-2019 All Rights Reserved.<br></footer>
+        </div>
+    }
+</body>
+    </html>

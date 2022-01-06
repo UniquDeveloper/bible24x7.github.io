@@ -1,0 +1,82 @@
+﻿@model PagedList.IPagedList<Demo.Crud.Mvc.Models.AddBookContent>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Edit</h3>
+        </div>
+        <div class="card-body">
+            <h4><b>List Of Articals</b></h4>
+            @using (Html.BeginForm("AddList", "AddContent", FormMethod.Get))
+            {
+                <p>
+                    Topic : @Html.TextBox("BName", ViewBag.CurrentFilter as string)
+                    <input type="submit" value="Filter" class="btn-primary" />
+                </p>
+            }
+
+            <table class="table" id="example" border="1">
+                <tr>
+                    <th>
+                        @Html.ActionLink("Topic", "AddList", new { sortOrder = ViewBag.NameSortParm, CurrentFilter = ViewBag.CurrentFilter })
+
+                    </th>
+
+                    <th>
+                        @Html.ActionLink("Description", "AddList", new { sortOrder = ViewBag.NameSortParm, CurrentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Active", "AddList", new { sortOrder = ViewBag.NameSortParm, CurrentFilter = ViewBag.CurrentFilter })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Image", "AddList", new { sortOrder = ViewBag.NameSortParm, CurrentFilter = ViewBag.CurrentFilter })
+                    </th>
+
+                    <th>Action</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BDescription)
+                        </td>
+                        <td>
+                            @if (item.Active == true)
+                {
+                                @Html.Encode("Active")
+                            }
+                            else
+                            {
+                                @Html.Encode("Deative")
+                            }
+                        </td>
+                        <td>
+                            @*<img src="~/Content/Image/apple-1920x1200.jpg" style="width:100px;height:100px;" />*@
+                            <img src="~/Image/@item.Image" style="width:100px;height:100px;" />
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.BID }) |
+                            @Html.ActionLink("Delete", "DeleteContent", new { id = item.BID })
+                        </td>
+                    </tr>
+                }
+            </table>
+
+            <br />
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)of @Model.PageCount
+
+            @Html.PagedListPager(Model, Page => Url.Action("AddList", new { Page, sortOrder = ViewBag.CurrentSort, CurrentFilter = ViewBag.CurrentFilter }))
+        </div>
+    </div>
+</div>
