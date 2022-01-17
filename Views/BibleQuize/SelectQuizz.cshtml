@@ -1,0 +1,41 @@
+﻿@model Demo.Crud.Mvc.Models.Quiz
+@{
+    ViewBag.Title = "SelectQuizz";
+    Layout = "~/Views/Shared/_BibleLayout.cshtml";
+}
+
+<div class="container-lg">
+    <div class="card card-info">
+        <div class="card-header">
+            <h3 class="card-title">Quiz</h3>
+        </div>
+        <div class="card-body">
+            <div class="container">
+
+                <div class="userConnected" style="border:2px dashed #cecaca; border-radius: 10px; margin-top: 3%;">
+
+                    @{ Html.RenderPartial("_UserInfo");}
+
+                </div>
+                <div class="SelQuiz">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Select Your Quiz</div>
+                        <div class="panel-body">
+
+                            @using (Html.BeginForm("SelectQuizz", "BibleQuize", FormMethod.Post))
+                            {
+                                <div class="col-lg-3">
+                                    @Html.DropDownListFor(model => model.QuizID, ViewBag.quiz1 as SelectList, "----select---")
+                                </div>
+                                <hr />
+                                <button type="submit" id="Enter" class="btn btn-info"><span class="icon icon-ok"></span>Start</button>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>  <!-- END CONTAINER -->
+        </div>
+    </div>
+</div>

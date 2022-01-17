@@ -1,0 +1,61 @@
+﻿@model Demo.Crud.Mvc.Models.Quiz
+@{
+    ViewBag.Title = "AddQuiz";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@{
+
+    var message = TempData["AlertMessege"] ?? string.Empty;
+}
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Add Set</h3>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("AddQuiz", "AddQuiz", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                     
+                        @if (Model != null)
+                        {
+                            @Html.HiddenFor(model => model.QuizID)
+                        }
+
+                        <div class="col-md-10">
+                            <label>Set</label>
+                            @Html.EditorFor(model => model.QuizName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.QuizName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @if (Model != null)
+                            {
+                                <input type="submit" value="Edit" class="btn btn-info" />
+                            }
+                            else
+                            {
+                                <input type="submit" value="Add" class="btn btn-info" />
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    debugger;
+    var message = '@message';
+    if (message) {
+        alert(message);
+    }
+</script>
